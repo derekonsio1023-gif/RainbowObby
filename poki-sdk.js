@@ -3,19 +3,27 @@ window.PokiSDK = {
         return Promise.resolve();
     },
 
-    gameplayStart() {
-        console.log("PokiSDK: gameplayStart");
+    gameplayStart() {},
+
+    gameplayStop() {},
+
+    gameLoadingFinished() {},
+
+    setDebug() {},
+
+    // Anuncio normal
+    commercialBreak(callback) {
+        if (typeof callback === "function") {
+            callback();
+        }
+        return Promise.resolve();
     },
 
-    gameplayStop() {
-        console.log("PokiSDK: gameplayStop");
-    },
-
-    gameLoadingFinished() {
-        console.log("PokiSDK: gameLoadingFinished");
-    },
-
-    setDebug(enabled) {
-        console.log("PokiSDK: debug =", enabled);
+    // Anuncio recompensado
+    rewardedBreak(callback) {
+        if (typeof callback === "function") {
+            callback(true); // Simula que el usuario vio el anuncio
+        }
+        return Promise.resolve(true);
     }
 };
